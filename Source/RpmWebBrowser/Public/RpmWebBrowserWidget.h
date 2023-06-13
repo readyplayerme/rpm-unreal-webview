@@ -6,25 +6,12 @@
 #include "RpmWebBrowserTypes.h"
 #include "RpmWebBrowserWidget.generated.h"
 
-/**
- * 
- */
 UCLASS(BlueprintType)
 class RPMWEBBROWSER_API URpmWebBrowserWidget : public UWebBrowser
 {
 	GENERATED_BODY()
 
 public:
-	
-	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Setup Browser"), Category = "Ready Player Me|Web Browser")
-	void SetupBrowser();
-
-	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Bind Browser To Object"),
-		Category = "Ready Player Me|Web Browser")
-	void BindBrowserToObject();
-
-	void HandleEvents(const FString& JsonResponse) const;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Ready Player Me|Web Browser")
 	FString PartnerDomain = "demo";
 
@@ -62,6 +49,11 @@ protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
 
 private:
+	UFUNCTION()
+	void HandleUrlChanged(const FText& Text);
+	
+	void SetupBrowser();
+	void HandleEvents(const FString& JsonResponse) const;
 	void AddBodyTypeParam(TArray<FString>& Params) const;
 	void AddGenderParam(TArray<FString>& Params) const;
 	FString BuildUrl(const FString& LoginToken = FString()) const;

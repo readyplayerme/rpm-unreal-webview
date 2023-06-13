@@ -2,14 +2,11 @@
 
 #include "RpmWebBrowserWidget.h"
 #include "SWebBrowser.h"
-#include "Misc/FileHelper.h"
-#include "Misc/Paths.h"
 #include "WebMessage.h"
 #include "WebBrowserEvents.h"
+#include "FrameSetupJs.h"
 
-static const FString LinkObjectName = TEXT("rpmlinkobject");
-static const FString JavascriptPath = TEXT("RpmWebBrowser/Scripts/RpmFrameSetup.js");
-
+static const TCHAR* LinkObjectName = TEXT("rpmlinkobject");
 static const TCHAR* ClearCacheParam = TEXT("clearCache");
 static const TCHAR* QuickStartParam = TEXT("quickStart");
 static const TCHAR* FullBodyParam = TEXT("bodyType=fullbody");
@@ -39,27 +36,9 @@ static const TMap<ELanguage, FString> LANGUAGE_TO_STRING =
 
 void URpmWebBrowserWidget::SetupBrowser()
 {
-	BindBrowserToObject();
-	const FString Path = FPaths::ProjectPluginsDir() / JavascriptPath;
-
-	FString RpmSetupJavascript;
-	if (FPaths::FileExists(Path))
-	{
-		FFileHelper::LoadFileToString(RpmSetupJavascript, *Path);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Script file not found: %s"), *Path);
-		return;
-	}
-
-	ExecuteJavascript(RpmSetupJavascript);
-}
-
-void URpmWebBrowserWidget::BindBrowserToObject()
-{
-	this->Rename(*LinkObjectName);
+	Rename(LinkObjectName);
 	WebBrowserWidget->BindUObject(LinkObjectName, this);
+	ExecuteJavascript(RPM_SETUP_JAVASCRIPT);
 }
 
 void URpmWebBrowserWidget::HandleEvents(const FString& JsonResponse) const
@@ -169,9 +148,20 @@ void URpmWebBrowserWidget::EventReceived(const FString JsonResponse)
 	HandleEvents(JsonResponse);
 }
 
+
+void URpmWebBrowserWidget::HandleUrlChanged(const FText& Text)
+{
+	SetupBrowser();
+	OnUrlChanged.RemoveAll(this);
+}
+
 TSharedRef<SWidget> URpmWebBrowserWidget::RebuildWidget()
 {
 	InitialURL = BuildUrl();
+	if (!IsDesignTime())
+	{
+		OnUrlChanged.AddUniqueDynamic(this, &URpmWebBrowserWidget::HandleUrlChanged);
+	}
 
 	return Super::RebuildWidget();
 }
