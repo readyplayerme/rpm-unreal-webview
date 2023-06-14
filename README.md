@@ -50,40 +50,21 @@ To update the plugin submodule paste the following command in the terminal from 
 
 ## Quick Start
 
-A demo map is included in the plugin for demonstrating how the **Sample Avatar Creator** opens at runtime. It is located in the `RpmAvatarCreator\Content\Maps` folder.
-To add the AvatarCreator widget to your project simply copy the existing blueprint logic from the demo map into your project.
+A demo map is included in the plugin for demonstrating how the **Web Browser** opens at runtime. It is located in the `RpmAvatarCreator\Content\Maps` folder.
+To add the `RpmWebBrowser` to your project simply copy the existing blueprint logic from the demo map into your project.
 
-**RpmAvatarCreatorWidget** is a widget that can be added to a map or another widget.
-Inside the WebBrowserDemo map we create and add the widget to the viewport.
-**AvatarCreator** can be customized by providing default values when the widget is created.
-We need to subscribe to the **Avatar Saved** event to get the URL when the avatar is saved.
-We need to subscribe to the **Avatar Selected** event as well to get the URL when the avatar is selected from the list of user avatars.
+**RpmWebBrowserWidget** is a widget that can be added to a map or another widget.
+For ease of use we will create a helper widget that will wrap the **RpmWebBrowserWidget** widget.
+Inside the WebBrowserDemo map we create and add the helper widget to the viewport.
+**RpmWebBrowserWidget** can be customized by providing default values when the widget is created.
+We need to subscribe to the **Avatar Generated Event** event to get the URL when the avatar is saved.
 Additionally, we can load an avatar with this URL afterward.
 
 ![Screenshot_20230221_060932](https://user-images.githubusercontent.com/3124894/229149539-1ae0e7a5-c9ae-4671-b6e1-e267e14fd204.png)
 
-Additionally if close button is enabled, we can subscribe to the **Close Button Clicked** event to be notified when the close button is clicked.
-This way we can close the widget and perform other actions.
-
-# Web Browser Demo Map
-
-The WebBrowserDemo map located in the `Content` folder is a good starting point for anybody wanting to use the Web Browser plugin to seamlessly integrate our RPM Web Avatar Creator into you game or application.
-The logic for this is rather simple, if you open up the Level Blueprint you will see this network of nodes.
-
-![Screenshot 2022-10-26 122813](https://user-images.githubusercontent.com/108666572/198003565-c192c23d-9d34-4b10-ac4b-783bc1db4061.png)
-
-In the first group of nodes, connected to the `BeginPlay` event we create and add our Ready Player Me Browser widget to the viewport before setting `ShowMouseCursor` to true so that the user can see the cursor and interact with the browser widget.
-
-![Screenshot 2022-10-26 122603](https://user-images.githubusercontent.com/108666572/198003525-3be3ec33-c514-4945-8c85-ea3250e92564.png)
-
-Next we bind the RPM Browser widget's Avatar Generated Event to run the Load New Avatar event on a RPM Actor blueprint present in the map. The Avatar Generated Event is called from the web browser widget once the avatar creation process is complete and it returns a URL to the RPM avatar GLB file, which we subsequently load into the scene.
-
-![Screenshot 2022-10-26 122603](https://user-images.githubusercontent.com/108666572/198003202-25142a00-e7ee-4077-9c3c-9f26cd12a43d.png)
-
 # Web Browser Wrapper Widget
 
-`WBP_RPM_WebBrowserWrapper` widget is a helper widget, that demonstrates the usage of the RpmWebBrowserWidget widget. 
-It's located in `Content > Widgets`. If you open up the widget you will in the Hierarchy panel that it consists of a **RPM Web Browser widget** inside of it.
+`WBP_RPM_WebBrowserWrapper` widget is a helper widget, that wraps the **RpmWebBrowserWidget** widget. It's located in `Content > Widgets`.
 
 ![img-widget-hierarchy](https://user-images.githubusercontent.com/7085672/163364100-75cc563b-3e78-418f-ab1a-47b79cfabf45.png)
 
