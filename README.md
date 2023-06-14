@@ -4,7 +4,7 @@
 
 ![Screenshot 2022-10-26 121106](https://user-images.githubusercontent.com/108666572/198000119-79ea06ea-4a12-458d-8c7d-88cf7d7ab208.png)
 
-Ready Player Me Web Browser is an extension to www.readyplayer.me avatar platform, which helps you to open integrated web browser at runtime.
+Ready Player Me Web Browser is an extension to www.readyplayer.me avatar platform, which helps you to open an integrated web browser at runtime.
 
 RpmWebBrowser plugin uses the Unreal Engine Web Browser module (and Web Browser Widget) to embed the Ready Player Me Web Avatar Creator inside an application.
 
@@ -16,7 +16,7 @@ Please visit the online documentation and join our public `discord` community.
 
 ## Constraints
 
-**NOTE:** The Web Browser module will only work with our readyplayer.me website in Unreal Engine 5 on Windows platform. The Web Browser module in Unreal Engine 4 uses a very old version of chromium which does not support all the modern web browser features.
+**NOTE:** The Web Browser module will only work with our readyplayer.me website in Unreal Engine 5 on the Windows platform. The Web Browser module in Unreal Engine 4 uses a very old version of Chromium which does not support all the modern web browser features.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ Please visit the online documentation and join our public `discord` community.
 
 There are three ways you can add the **RpmAvatarCreator** plugin to your project. Add as submodules, paste the plugin inside of the **Plugins** folder, or add the blueprint version of the plugin to the Engine.
 
-- To add the plugin to your project as a submodules, run the following command in the terminal from your project folder. This is preferred way of setting up the plugin.
+- To add the plugin to your project as a submodule, run the following command in the terminal from your project folder. This is the preferred way of setting up the plugin.
 
   ```
    git submodule add --name Plugins/RpmWebBrowser -- https://github.com/readyplayerme/rpm-unreal-web-browser.git Plugins/RpmWebBrowser
@@ -54,47 +54,41 @@ A demo map is included in the plugin for demonstrating how the **Web Browser** o
 To add the `RpmWebBrowser` to your project simply copy the existing blueprint logic from the demo map into your project.
 
 **RpmWebBrowserWidget** is a widget that can be added to a map or another widget.
-For ease of use we will create a helper widget that will wrap the **RpmWebBrowserWidget** widget.
-Inside the WebBrowserDemo map we create and add the helper widget to the viewport.
+For ease of use, we will create a helper widget that will wrap the **RpmWebBrowserWidget** widget.
+Inside the WebBrowserDemo map, we create and add the helper widget to the viewport.
 **RpmWebBrowserWidget** can be customized by providing default values when the widget is created.
 We need to subscribe to the **Avatar Generated Event** event to get the URL when the avatar is saved.
 Additionally, we can load an avatar with this URL afterward.
 
-![Screenshot_20230221_060932](https://user-images.githubusercontent.com/3124894/229149539-1ae0e7a5-c9ae-4671-b6e1-e267e14fd204.png)
+![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/408d448f-ad6e-4ca5-96a0-45342b1d89a2)
 
 # Web Browser Wrapper Widget
 
 `WBP_RPM_WebBrowserWrapper` widget is a helper widget, that wraps the **RpmWebBrowserWidget** widget. It's located in `Content > Widgets`.
-
-![img-widget-hierarchy](https://user-images.githubusercontent.com/7085672/163364100-75cc563b-3e78-418f-ab1a-47b79cfabf45.png)
-
 The helper widget adds padding to the `RpmWebBrowser` widget. It also adds listeners for the `RpmWebBrowser` events.
-
-![Screenshot 2023-06-08 110605](https://github.com/readyplayerme/UnrealExamples/assets/7085672/094e98ca-733c-44cc-b582-32ab00e84e51)
-
-**Avatar Exported** callback section which shows the `OnAvatarExported` event we mentioned previous. Use this callback and the AvatarUrl property to retrieve the avatar url.
-![Screenshot 2023-06-08 123434](https://github.com/readyplayerme/UnrealExamples/assets/7085672/44043a1e-7a2d-4974-a4d8-fffea13a5c4b)
 
 ## Avatar Creator Customization
 
 RpmWebBrowserWidget widget has properties that can be tweaked to customize the avatar creator. By changing the parameters a custom Url will be generated for the web browser.
-- **Partner Domain**: By default it's set to demo, however as the name suggests this is only recommended for demo's. We highly recommend you become a Ready Player Me partner and get your own partner space. Once you have your own partner space setup you update this parameter accordingly.
+- **Partner Domain**: By default it's set to demo, however, as the name suggests this is only recommended for demos. We highly recommend you become a Ready Player Me partner and get your own partner space. Once you have your own partner space setup you update this parameter accordingly.
 - **Clean Cache**: Provides a Kiosk experience
 - **Quick Start**: Enters the Quick Start view.
 - **Body Type**: Skip the body type selection step when opening the avatar view.
 - **Gender**: Skip the gender selection step when opening the avatar view.
-- **Language**: By default the system language will be used for opening the browser, However the language can be customized.
+- **Language**: By default, the system language will be used for opening the browser, however, the language can be customized.
 
 ![Screenshot 2022-12-02 173148](https://user-images.githubusercontent.com/3124894/205340278-cc75a168-7813-4e32-bfdb-e44e41f00555.png)
 
 ## Subscribe To Events
 
-Further down in the Details panel you will see a number of events that can be bound to.
+Further down in the Details panel, you will see a number of events that can be bound to.
 These events are called from the **WebBrowser Widget** when certain events occur.
-For example when the avatar creation process has been completed the `OnAvatarExported` event will be called.
+For example, when the avatar creation process has been completed the `OnAvatarExported` event will be called.
 This event will return the URL to the GLB file of the avatar. This can then be used to load the avatar into the scene.
 
 ![Screenshot 2023-06-08 110535](https://github.com/readyplayerme/UnrealExamples/assets/7085672/1716ab37-a550-44af-966d-e31d12a46d32)
+
+![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/1c8fe9db-5337-4706-a665-ce98e371238c)
 
 # Ready Player Me Browser Widget Class
 
