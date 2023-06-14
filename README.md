@@ -86,7 +86,7 @@ These events are called from the **WebBrowser Widget** when certain events occur
 For example, when the avatar creation process has been completed the `OnAvatarExported` event will be called.
 This event will return the URL to the GLB file of the avatar. This can then be used to load the avatar into the scene.
 
-![Screenshot 2023-06-08 110535](https://github.com/readyplayerme/UnrealExamples/assets/7085672/1716ab37-a550-44af-966d-e31d12a46d32)
+![Screenshot 2023-03-13 214725](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/ecbf65cc-9231-4816-96c4-8ce1420077e4)
 
 ![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/cb3d86e8-2ce1-4381-b93f-45b8dd9da788)
 
