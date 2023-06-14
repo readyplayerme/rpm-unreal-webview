@@ -60,7 +60,7 @@ Inside the WebBrowserDemo map, we create and add the helper widget to the viewpo
 We need to subscribe to the **Avatar Generated Event** event to get the URL when the avatar is saved.
 Additionally, we can load an avatar with this URL afterward.
 
-![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/408d448f-ad6e-4ca5-96a0-45342b1d89a2)
+![Screenshot 2023-03-03 171956](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/41d93145-797f-45c0-86df-dc407b1497f0)
 
 # Web Browser Wrapper Widget
 
@@ -88,7 +88,7 @@ This event will return the URL to the GLB file of the avatar. This can then be u
 
 ![Screenshot 2023-06-08 110535](https://github.com/readyplayerme/UnrealExamples/assets/7085672/1716ab37-a550-44af-966d-e31d12a46d32)
 
-![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/1c8fe9db-5337-4706-a665-ce98e371238c)
+![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/cb3d86e8-2ce1-4381-b93f-45b8dd9da788)
 
 # Ready Player Me Browser Widget Class
 
