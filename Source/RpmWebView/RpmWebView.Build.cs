@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class RpmWebBrowser : ModuleRules
+public class RpmWebView : ModuleRules
 {
-	public RpmWebBrowser(ReadOnlyTargetRules Target) : base(Target)
+	public RpmWebView(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		bUseUnity = false;

@@ -3,11 +3,11 @@
 #pragma once
 
 #include "WebBrowser.h"
-#include "RpmWebBrowserTypes.h"
-#include "RpmWebBrowserWidget.generated.h"
+#include "RpmWebViewTypes.h"
+#include "RpmWebViewWidget.generated.h"
 
 UCLASS(BlueprintType)
-class RPMWEBBROWSER_API URpmWebBrowserWidget : public UWebBrowser
+class RPMWEBVIEW_API URpmWebViewWidget : public UWebBrowser
 {
 	GENERATED_BODY()
 

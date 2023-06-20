@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "RpmWebBrowserTypes.generated.h"
+#include "RpmWebViewTypes.generated.h"
 
 UENUM(BlueprintType)
 enum class ESelectBodyType : uint8

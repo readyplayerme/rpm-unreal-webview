@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "RpmWebBrowserTypes.h"
+#include "RpmWebViewTypes.h"
 
 class FWebMessage
 {

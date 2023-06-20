@@ -1,12 +1,12 @@
-# Ready Player Me Web Browser
+# Ready Player Me WebView
 
 ![Screenshot 2022-10-26 121009](https://user-images.githubusercontent.com/108666572/198000086-7771d6a5-70cc-4b39-b087-b0533257d9be.png)
 
 ![Screenshot 2022-10-26 121106](https://user-images.githubusercontent.com/108666572/198000119-79ea06ea-4a12-458d-8c7d-88cf7d7ab208.png)
 
-Ready Player Me Web Browser is an extension to www.readyplayer.me avatar platform, which helps you to open an integrated web browser at runtime.
+Ready Player Me WebView is an extension to www.readyplayer.me avatar platform, which helps you to open an integrated web browser at runtime.
 
-RpmWebBrowser plugin uses the Unreal Engine Web Browser module (and Web Browser Widget) to embed the Ready Player Me Web Avatar Creator inside an application.
+RpmWebView plugin uses the Unreal Engine Web Browser module (and Web Browser Widget) to embed the Ready Player Me Web Avatar Creator inside an application.
 
 Please visit the online documentation and join our public `discord` community.
 
@@ -16,7 +16,7 @@ Please visit the online documentation and join our public `discord` community.
 
 ## Constraints
 
-**NOTE:** The Web Browser module will only work with our readyplayer.me website in Unreal Engine 5 on the Windows platform. The Web Browser module in Unreal Engine 4 uses a very old version of Chromium which does not support all the modern web browser features.
+**NOTE:** The WebView plugin will only work with our readyplayer.me website in Unreal Engine 5 on the Windows platform. The Web Browser module in Unreal Engine 4 uses a very old version of Chromium which does not support all the modern web browser features.
 
 ## Requirements
 
@@ -24,52 +24,52 @@ Please visit the online documentation and join our public `discord` community.
 
 ## Integration
 
-### Add RpmWebBrowser plugin
+### Add RpmWebView plugin
 
 There are three ways you can add the **RpmAvatarCreator** plugin to your project. Add as submodules, paste the plugin inside of the **Plugins** folder, or add the blueprint version of the plugin to the Engine.
 
 - To add the plugin to your project as a submodule, run the following command in the terminal from your project folder. This is the preferred way of setting up the plugin.
 
   ```
-   git submodule add --name Plugins/RpmWebBrowser -- https://github.com/readyplayerme/rpm-unreal-web-browser.git Plugins/RpmWebBrowser
+   git submodule add --name Plugins/RpmWebView -- https://github.com/readyplayerme/rpm-unreal-webview.git Plugins/RpmWebView
   ```
 
 - To clone the plugin into your project, run the following command in the terminal from your project folder.
 
-- To paste the plugin inside of the Plugins folder, create a **Plugins** folder from the root of your project, download the latest tags of the [RpmWebBrowser](https://github.com/readyplayerme/rpm-unreal-web-browser.git) plugin into it. Rename the **rpm-unreal-web-browser** plugin folder to the **RpmWebBrowser**.
+- To paste the plugin inside of the Plugins folder, create a **Plugins** folder from the root of your project, download the latest tags of the [RpmWebView](https://github.com/readyplayerme/rpm-unreal-webview.git) plugin into it. Rename the **rpm-unreal-webview** plugin folder to the **RpmWebView**.
 
-- To add the blueprint version of the plugin, find the plugin attached in the [Latest Release](https://github.com/readyplayerme/rpm-unreal-web-browser/releases/latest), add it to the Plugins/Runtime folder of the installed Unreal Engine.
+- To add the blueprint version of the plugin, find the plugin attached in the [Latest Release](https://github.com/readyplayerme/rpm-unreal-webview/releases/latest), add it to the Plugins/Runtime folder of the installed Unreal Engine.
 
-### Update RpmWebBrowser plugin submodule
+### Update RpmWebView plugin submodule
 
 To update the plugin submodule paste the following command in the terminal from your project folder. This will fetch and switch the plugin repositories to the latest stable release.
 
   ```
-  cd Plugins/RpmWebBrowser ; git fetch --tags ; git checkout $(git describe --tags $(git rev-list --tags --max-count=1)) ; cd ../..
+  cd Plugins/RpmWebView ; git fetch --tags ; git checkout $(git describe --tags $(git rev-list --tags --max-count=1)) ; cd ../..
   ```
 
 ## Quick Start
 
-A demo map is included in the plugin for demonstrating how the **Web Browser** opens at runtime. It is located in the `RpmAvatarCreator\Content\Maps` folder.
-To add the `RpmWebBrowser` to your project simply copy the existing blueprint logic from the demo map into your project.
+A demo map is included in the plugin for demonstrating how the **WebView** opens at runtime. It is located in the `RpmWebView\Content\Maps` folder.
+To add the `RpmWebView` to your project simply copy the existing blueprint logic from the demo map into your project.
 
-**RpmWebBrowserWidget** is a widget that can be added to a map or another widget.
-For ease of use, we will create a helper widget that will wrap the **RpmWebBrowserWidget** widget.
-Inside the WebBrowserDemo map, we create and add the helper widget to the viewport.
-**RpmWebBrowserWidget** can be customized by providing default values when the widget is created.
+**RpmWebViewWidget** is a widget that can be added to a map or another widget.
+For ease of use, we will create a helper widget that will wrap the **RpmWebViewWidget** widget.
+Inside the WebViewDemo map, we create and add the helper widget to the viewport.
+**RpmWebViewWidget** can be customized by providing default values when the widget is created.
 We need to subscribe to the **Avatar Generated Event** event to get the URL when the avatar is saved.
 Additionally, we can load an avatar with this URL afterward.
 
-![Screenshot 2023-03-03 171956](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/41d93145-797f-45c0-86df-dc407b1497f0)
+![Screenshot 2023-03-03 171956](https://github.com/readyplayerme/rpm-unreal-webview/assets/3124894/41d93145-797f-45c0-86df-dc407b1497f0)
 
-# Web Browser Wrapper Widget
+# WebView Wrapper Widget
 
-`WBP_RPM_WebBrowserWrapper` widget is a helper widget, that wraps the **RpmWebBrowserWidget** widget. It's located in `Content > Widgets`.
-The helper widget adds padding to the `RpmWebBrowser` widget. It also adds listeners for the `RpmWebBrowser` events.
+`WBP_RPM_WebViewWrapper` widget is a helper widget, that wraps the **RpmWebViewWidget** widget. It's located in `Content > Widgets`.
+The helper widget adds padding to the `RpmWebView` widget. It also adds listeners for the `RpmWebView` events.
 
 ## Avatar Creator Customization
 
-RpmWebBrowserWidget widget has properties that can be tweaked to customize the avatar creator. By changing the parameters a custom Url will be generated for the web browser.
+RpmWebViewWidget widget has properties that can be tweaked to customize the avatar creator. By changing the parameters a custom Url will be generated for the web browser.
 - **Partner Domain**: By default it's set to demo, however, as the name suggests this is only recommended for demos. We highly recommend you become a Ready Player Me partner and get your own partner space. Once you have your own partner space setup you update this parameter accordingly.
 - **Clean Cache**: Provides a Kiosk experience
 - **Quick Start**: Enters the Quick Start view.
@@ -86,13 +86,13 @@ These events are called from the **WebBrowser Widget** when certain events occur
 For example, when the avatar creation process has been completed the `OnAvatarExported` event will be called.
 This event will return the URL to the GLB file of the avatar. This can then be used to load the avatar into the scene.
 
-![Screenshot 2023-03-13 214725](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/ecbf65cc-9231-4816-96c4-8ce1420077e4)
+![Screenshot 2023-03-13 214725](https://github.com/readyplayerme/rpm-unreal-webview/assets/3124894/ecbf65cc-9231-4816-96c4-8ce1420077e4)
 
-![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-web-browser/assets/3124894/cb3d86e8-2ce1-4381-b93f-45b8dd9da788)
+![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-webview/assets/3124894/cb3d86e8-2ce1-4381-b93f-45b8dd9da788)
 
-# Ready Player Me Browser Widget Class
+# Ready Player Me WebView Widget Class
 
-The `URpmWebBrowserWidget` class, is inherited from the Unreal` UWebBrowser` class and it adds a few extra functions for setting up the connection between the Web Browser and **Ready Player Me** website.
+The `URpmWebViewWidget` class, is inherited from the Unreal` UWebBrowser` class and it adds a few extra functions for setting up the connection between the Web Browser and **Ready Player Me** website.
 
 It adds delegates for the events that are thrown from the **Ready Player Me** avatar creator web page.
 The following delegates are available for subscription: 

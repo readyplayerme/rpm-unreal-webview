@@ -1,6 +1,6 @@
 // Copyright © 2021++ Ready Player Me
 
-#include "RpmWebBrowserWidget.h"
+#include "RpmWebViewWidget.h"
 #include "SWebBrowser.h"
 #include "WebMessage.h"
 #include "WebBrowserEvents.h"
@@ -34,14 +34,14 @@ static const TMap<ELanguage, FString> LANGUAGE_TO_STRING =
 	{ELanguage::Ch, "ch"}
 };
 
-void URpmWebBrowserWidget::SetupBrowser()
+void URpmWebViewWidget::SetupBrowser()
 {
 	Rename(LinkObjectName);
 	WebBrowserWidget->BindUObject(LinkObjectName, this);
 	ExecuteJavascript(RPM_SETUP_JAVASCRIPT);
 }
 
-void URpmWebBrowserWidget::HandleEvents(const FString& JsonResponse) const
+void URpmWebViewWidget::HandleEvents(const FString& JsonResponse) const
 {
 	const FWebMessage WebMessage = FWebViewEvents::ConvertJsonStringToWebMessage(JsonResponse);
 	if (WebMessage.EventName == FWebViewEvents::USER_SET)
@@ -75,7 +75,7 @@ void URpmWebBrowserWidget::HandleEvents(const FString& JsonResponse) const
 	UE_LOG(LogTemp, Log, TEXT("WebEvent: %s"), *WebMessage.EventName);
 }
 
-void URpmWebBrowserWidget::AddBodyTypeParam(TArray<FString>& Params) const
+void URpmWebViewWidget::AddBodyTypeParam(TArray<FString>& Params) const
 {
 	switch (SelectBodyType)
 	{
@@ -93,7 +93,7 @@ void URpmWebBrowserWidget::AddBodyTypeParam(TArray<FString>& Params) const
 	}
 }
 
-void URpmWebBrowserWidget::AddGenderParam(TArray<FString>& Params) const
+void URpmWebViewWidget::AddGenderParam(TArray<FString>& Params) const
 {
 	switch (SelectGender)
 	{
@@ -108,7 +108,7 @@ void URpmWebBrowserWidget::AddGenderParam(TArray<FString>& Params) const
 	}
 }
 
-FString URpmWebBrowserWidget::BuildUrl(const FString& LoginToken) const
+FString URpmWebViewWidget::BuildUrl(const FString& LoginToken) const
 {
 	TArray<FString> Params;
 	if(!LoginToken.IsEmpty())
@@ -143,24 +143,24 @@ FString URpmWebBrowserWidget::BuildUrl(const FString& LoginToken) const
 		TEXT("https://%s.readyplayer.me%s/avatar%s"), *PartnerDomain, *LanguageStr, *UrlQueryStr);
 }
 
-void URpmWebBrowserWidget::EventReceived(const FString JsonResponse)
+void URpmWebViewWidget::EventReceived(const FString JsonResponse)
 {
 	HandleEvents(JsonResponse);
 }
 
 
-void URpmWebBrowserWidget::HandleUrlChanged(const FText& Text)
+void URpmWebViewWidget::HandleUrlChanged(const FText& Text)
 {
 	SetupBrowser();
 	OnUrlChanged.RemoveAll(this);
 }
 
-TSharedRef<SWidget> URpmWebBrowserWidget::RebuildWidget()
+TSharedRef<SWidget> URpmWebViewWidget::RebuildWidget()
 {
 	InitialURL = BuildUrl();
 	if (!IsDesignTime())
 	{
-		OnUrlChanged.AddUniqueDynamic(this, &URpmWebBrowserWidget::HandleUrlChanged);
+		OnUrlChanged.AddUniqueDynamic(this, &URpmWebViewWidget::HandleUrlChanged);
 	}
 
 	return Super::RebuildWidget();

@@ -2,8 +2,8 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "0.1.0",
-	"FriendlyName": "Ready Player Me Web Browser",
-	"Description": "Ready Player Me Web Browser",
+	"FriendlyName": "Ready Player Me WebView",
+	"Description": "Ready Player Me WebView",
 	"Category": "Runtime",
 	"CreatedBy": "Ready Player Me",
 	"CreatedByURL": "https://readyplayer.me/",
@@ -16,7 +16,7 @@
 	"Installed": true,
 	"Modules": [
 		{
-			"Name": "RpmWebBrowser",
+			"Name": "RpmWebView",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"WhitelistPlatforms": [

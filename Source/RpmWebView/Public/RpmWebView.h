@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
-class FRpmWebBrowserModule : public IModuleInterface
+class FRpmWebViewModule : public IModuleInterface
 {
 public:
 
