@@ -2,8 +2,6 @@
 
 ![Screenshot 2022-10-26 121009](https://user-images.githubusercontent.com/108666572/198000086-7771d6a5-70cc-4b39-b087-b0533257d9be.png)
 
-![Screenshot 2022-10-26 121106](https://user-images.githubusercontent.com/108666572/198000119-79ea06ea-4a12-458d-8c7d-88cf7d7ab208.png)
-
 Ready Player Me WebView is an extension to www.readyplayer.me avatar platform, which helps you to open an integrated web browser at runtime.
 
 RpmWebView plugin uses the Unreal Engine Web Browser module (and Web Browser Widget) to embed the Ready Player Me Web Avatar Creator inside an application.
@@ -36,7 +34,7 @@ There are three ways you can add the **RpmAvatarCreator** plugin to your project
 
 - To clone the plugin into your project, run the following command in the terminal from your project folder.
 
-- To paste the plugin inside of the Plugins folder, create a **Plugins** folder from the root of your project, download the latest tags of the [RpmWebView](https://github.com/readyplayerme/rpm-unreal-webview.git) plugin into it. Rename the **rpm-unreal-webview** plugin folder to the **RpmWebView**.
+- To paste the plugin inside of the Plugins folder, create a **Plugins** folder from the root of your project, and download the latest tags of the [RpmWebView](https://github.com/readyplayerme/rpm-unreal-webview.git) plugin into it. Rename the **rpm-unreal-webview** plugin folder to the **RpmWebView**.
 
 - To add the blueprint version of the plugin, find the plugin attached in the [Latest Release](https://github.com/readyplayerme/rpm-unreal-webview/releases/latest), add it to the Plugins/Runtime folder of the installed Unreal Engine.
 
@@ -69,7 +67,7 @@ The helper widget adds padding to the `RpmWebView` widget. It also adds listener
 
 ## Avatar Creator Customization
 
-RpmWebViewWidget widget has properties that can be tweaked to customize the avatar creator. By changing the parameters a custom Url will be generated for the web browser.
+RpmWebViewWidget widget has properties that can be tweaked to customize the avatar creator. Changing the parameters will generate a custom Url for the web browser.
 - **Partner Domain**: By default it's set to demo, however, as the name suggests this is only recommended for demos. We highly recommend you become a Ready Player Me partner and get your own partner space. Once you have your own partner space setup you update this parameter accordingly.
 - **Clean Cache**: Provides a Kiosk experience
 - **Quick Start**: Enters the Quick Start view.
@@ -82,17 +80,17 @@ RpmWebViewWidget widget has properties that can be tweaked to customize the avat
 ## Subscribe To Events
 
 Further down in the Details panel, you will see a number of events that can be bound to.
-These events are called from the **WebBrowser Widget** when certain events occur.
+These events are called from the **WebView Widget** when certain events occur.
 For example, when the avatar creation process has been completed the `OnAvatarExported` event will be called.
 This event will return the URL to the GLB file of the avatar. This can then be used to load the avatar into the scene.
 
 ![Screenshot 2023-03-13 214725](https://github.com/readyplayerme/rpm-unreal-webview/assets/3124894/ecbf65cc-9231-4816-96c4-8ce1420077e4)
 
-![Screenshot 2023-03-03 165756](https://github.com/readyplayerme/rpm-unreal-webview/assets/3124894/cb3d86e8-2ce1-4381-b93f-45b8dd9da788)
+![Screenshot 2023-06-20 141228](https://github.com/readyplayerme/rpm-unreal-webview/assets/3124894/a21d733e-28f0-4f3f-b413-02ac3fb67c5c)
 
 # Ready Player Me WebView Widget Class
 
-The `URpmWebViewWidget` class, is inherited from the Unreal` UWebBrowser` class and it adds a few extra functions for setting up the connection between the Web Browser and **Ready Player Me** website.
+The `URpmWebViewWidget` class, is inherited from the Unreal` UWebBrowser` class and it adds a few extra functions for setting up the connection between the Web Browser and the **Ready Player Me** website.
 
 It adds delegates for the events that are thrown from the **Ready Player Me** avatar creator web page.
 The following delegates are available for subscription: 
