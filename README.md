@@ -16,6 +16,9 @@ Please visit the online documentation and join our public `discord` community.
 
 **NOTE:** The WebView plugin will only work with our readyplayer.me website in Unreal Engine 5 on the Windows platform. The Web Browser module in Unreal Engine 4 uses a very old version of Chromium which does not support all the modern web browser features.
 
+### Known Issues
+- there is an issue that prevents the mouse interactions from working correctly on some windows machines when running in the application in fullscreen. It seems to be a limitation with the Web Browser plugin itself. 
+
 ## Requirements
 
 - Unreal Engine Version 5.0 or higher
