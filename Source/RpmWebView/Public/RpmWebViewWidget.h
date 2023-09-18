@@ -13,9 +13,6 @@ class RPMWEBVIEW_API URpmWebViewWidget : public UWebBrowser
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Ready Player Me|Web Browser")
-	FString PartnerDomain = "demo";
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Ready Player Me|Web Browser")
 	bool bClearCache = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Ready Player Me|Web Browser")
