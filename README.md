@@ -52,7 +52,7 @@ To update the plugin submodule paste the following command in the terminal from 
 ## Quick Start
 
 A demo map is included in the plugin for demonstrating how the **WebView** opens at runtime. It is located in the `RpmWebView\Content\Maps` folder.
-The webview will not run properly until the **Subdomain** of your application is set in the project settings. You can find them in **Ready Player Me Studio** website.
+The webview will not run properly until the **Subdomain** of your application is set in the project settings. You can find them in [**Ready Player Me Studio**](https://studio.readyplayer.me/signin) website.
 The **Subdomain** should belong to the same application otherwise the webview will fail.
 To add the `RpmWebView` to your project simply copy the existing blueprint logic from the demo map into your project.
 
