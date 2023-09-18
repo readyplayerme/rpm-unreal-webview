@@ -5,6 +5,7 @@
 #include "WebMessage.h"
 #include "WebBrowserEvents.h"
 #include "FrameSetupJs.h"
+#include "ReadyPlayerMeSettings.h"
 
 static const TCHAR* LinkObjectName = TEXT("rpmlinkobject");
 static const TCHAR* ClearCacheParam = TEXT("clearCache");
@@ -139,8 +140,9 @@ FString URpmWebViewWidget::BuildUrl(const FString& LoginToken) const
 		LanguageStr = "/" + LANGUAGE_TO_STRING[Language];
 	}
 
+	const UReadyPlayerMeSettings* Settings = GetDefault<UReadyPlayerMeSettings>();
 	return FString::Printf(
-		TEXT("https://%s.readyplayer.me%s/avatar%s"), *PartnerDomain, *LanguageStr, *UrlQueryStr);
+		TEXT("https://%s.readyplayer.me%s/avatar%s"), *Settings->Subdomain, *LanguageStr, *UrlQueryStr);
 }
 
 void URpmWebViewWidget::EventReceived(const FString JsonResponse)
@@ -151,6 +153,9 @@ void URpmWebViewWidget::EventReceived(const FString JsonResponse)
 
 void URpmWebViewWidget::HandleUrlChanged(const FText& Text)
 {
+	const UReadyPlayerMeSettings* Settings = GetDefault<UReadyPlayerMeSettings>();
+	const bool bIsSubdomainSet = IsValid(Settings) && !Settings->Subdomain.IsEmpty();
+	checkf(bIsSubdomainSet, TEXT("Application subdomain is required for the webview. Find the subdomain of your application from the Ready Player Me studio website, and set it in your project settings under the ReadyPlayerMe > Subdomain"));
 	SetupBrowser();
 	OnUrlChanged.RemoveAll(this);
 }

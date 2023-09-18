@@ -52,6 +52,8 @@ To update the plugin submodule paste the following command in the terminal from 
 ## Quick Start
 
 A demo map is included in the plugin for demonstrating how the **WebView** opens at runtime. It is located in the `RpmWebView\Content\Maps` folder.
+The webview will not run properly until the **Subdomain** of your application is set in the project settings. You can find them in **Ready Player Me Studio** website.
+The **Subdomain** should belong to the same application otherwise the webview will fail.
 To add the `RpmWebView` to your project simply copy the existing blueprint logic from the demo map into your project.
 
 **RpmWebViewWidget** is a widget that can be added to a map or another widget.
@@ -71,7 +73,6 @@ The helper widget adds padding to the `RpmWebView` widget. It also adds listener
 ## Avatar Creator Customization
 
 RpmWebViewWidget widget has properties that can be tweaked to customize the avatar creator. Changing the parameters will generate a custom Url for the web browser.
-- **Partner Domain**: By default it's set to demo, however, as the name suggests this is only recommended for demos. We highly recommend you become a Ready Player Me partner and get your own partner space. Once you have your own partner space setup you update this parameter accordingly.
 - **Clean Cache**: Provides a Kiosk experience
 - **Quick Start**: Enters the Quick Start view.
 - **Body Type**: Skip the body type selection step when opening the avatar view.

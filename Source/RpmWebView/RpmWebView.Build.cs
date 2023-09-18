@@ -42,7 +42,8 @@ public class RpmWebView : ModuleRules
 				"Json",
 				"JsonUtilities",
 				"WebBrowser",
-				"UMG"
+				"UMG",
+				"ReadyPlayerMe"
 			}
 			);
 
