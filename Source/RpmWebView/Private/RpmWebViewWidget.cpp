@@ -9,12 +9,12 @@
 
 static const TCHAR* LinkObjectName = TEXT("rpmlinkobject");
 static const TCHAR* ClearCacheParam = TEXT("clearCache");
-static const TCHAR* QuickStartParam = TEXT("quickStart");
 static const TCHAR* FullBodyParam = TEXT("bodyType=fullbody");
 static const TCHAR* HalfBodyParam = TEXT("bodyType=halfbody");
 static const TCHAR* SelectBodyTypeParam = TEXT("selectBodyType");
 static const TCHAR* GenderMaleParam = TEXT("gender=male");
 static const TCHAR* GenderFemaleParam = TEXT("gender=female");
+static const TCHAR* SourceParam = TEXT("source=unreal-webview");
 static const TCHAR* LoginTokenParam = TEXT("token");
 static const TCHAR* FrameApiParam = TEXT("frameApi");
 
@@ -118,14 +118,12 @@ FString URpmWebViewWidget::BuildUrl(const FString& LoginToken) const
 	}
 	
 	Params.Add(FrameApiParam);
+	Params.Add(SourceParam);
 	if (bClearCache)
 	{
 		Params.Add(ClearCacheParam);
 	}
-	if (bQuickStart)
-	{
-		Params.Add(QuickStartParam);
-	}
+	
 	AddBodyTypeParam(Params);
 	AddGenderParam(Params);
 
