@@ -14,7 +14,7 @@ static const TCHAR* HalfBodyParam = TEXT("bodyType=halfbody");
 static const TCHAR* SelectBodyTypeParam = TEXT("selectBodyType");
 static const TCHAR* GenderMaleParam = TEXT("gender=male");
 static const TCHAR* GenderFemaleParam = TEXT("gender=female");
-static const TCHAR* SourceParam = TEXT("source=unreal-avatar-creator");
+static const TCHAR* SourceParam = TEXT("source=unreal-webview");
 static const TCHAR* LoginTokenParam = TEXT("token");
 static const TCHAR* FrameApiParam = TEXT("frameApi");
 
